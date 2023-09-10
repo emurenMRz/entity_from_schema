@@ -1,0 +1,5 @@
+
+ 	/**
+ 	 * $target_column
+ 	 */
+ 	private $data_type $variable_name;

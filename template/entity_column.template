@@ -1,0 +1,6 @@
+
+	/**
+	 * $target_column
+	 */$id
+	@Column(name = "$column_name", columnDefinition = "$column_data_type"$column_options)
+	private $data_type $variable_name;

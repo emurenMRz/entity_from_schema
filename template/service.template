@@ -1,0 +1,14 @@
+import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+
+/**
+ * Service for $target_schema
+ */
+@Service
+public class ${entity_name}Service {
+    /**
+     * ${entity_name}Repository bean
+     */
+    @Autowired
+    private final ${entity_name}Repository ${repository_name}Repository;
+}

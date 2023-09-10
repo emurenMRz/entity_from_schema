@@ -1,0 +1,8 @@
+import org.springframework.stereotype.Repository;
+
+/**
+ * Repository for $target_schema
+ */
+@Repository
+public interface ${entity_name}Repository extends CrudRepository<$entity_name, $id_type> {
+}

@@ -1,0 +1,13 @@
+import jakarta.persistence.Entity;
+import jakarta.persistence.Column;
+import org.springframework.data.annotation.Id;
+import lombok.Data;
+
+import java.sql.*;
+
+/**
+ * Entity for $target_schema
+ */
+@Entity(name = "$table_name")$table_comment
+@Data
+public class $entity_name {$columns}

@@ -1,0 +1,9 @@
+import lombok.Data;
+
+import java.sql.*;
+
+/**
+ * Primary key for $target_schema
+ */
+@Data
+public class ${entity_name}Key {$columns}
