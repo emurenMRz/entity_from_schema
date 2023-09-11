@@ -51,7 +51,7 @@ def update_entity(database_name, options):
     make_entity = None if options.token_table_only else make_entity_jpa
     token_table = proc(database_name, prev_tokens, make_entity)
 
-    with open(csv_filename, 'w') as f:
+    with open(csv_filename, 'w', encoding='utf-8') as f:
         writer = csv.writer(f)
         writer.writerows(token_table)
 

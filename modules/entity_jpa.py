@@ -44,17 +44,17 @@ convert_nullable = {
     'boolean': 'Boolean',
 }
 
-with open(f"template/entity.template", 'r') as f:
+with open(f"template/entity.template") as f:
      entity_template = Template(f.read())
-with open(f"template/entity_column.template", 'r') as f:
+with open(f"template/entity_column.template") as f:
      entity_column_template = Template(f.read())
-with open(f"template/entity_key.template", 'r') as f:
+with open(f"template/entity_key.template") as f:
      entity_key_template = Template(f.read())
-with open(f"template/entity_key_column.template", 'r') as f:
+with open(f"template/entity_key_column.template") as f:
      entity_key_column_template = Template(f.read())
-with open(f"template/repository.template", 'r') as f:
+with open(f"template/repository.template") as f:
      repository_template = Template(f.read())
-with open(f"template/service.template", 'r') as f:
+with open(f"template/service.template") as f:
      service_template = Template(f.read())
 
 
@@ -97,7 +97,7 @@ def make_entity_class(table, base_dir = 'class/entity'):
         columns += build_column(table, column)
 
     os.makedirs(base_dir, exist_ok = True)
-    with open(f"{base_dir}/{entity_name}.java", 'w') as f:
+    with open(f"{base_dir}/{entity_name}.java", 'w', encoding='utf-8') as f:
         f.write(entity_template.safe_substitute(
              target_schema = target_schema,
              table_name = table.name,
@@ -128,7 +128,7 @@ def make_key_class(table, base_dir = 'class/entity'):
         columns += build_key_column(table.columns[key])
 
     os.makedirs(base_dir, exist_ok = True)
-    with open(f"{base_dir}/{entity_name}Key.java", 'w') as f:
+    with open(f"{base_dir}/{entity_name}Key.java", 'w', encoding='utf-8') as f:
         f.write(entity_key_template.safe_substitute(
              target_schema = target_schema,
              entity_name = entity_name,
@@ -145,7 +145,7 @@ def make_repository_interface(table, base_dir = 'class/repository'):
         id_type = convert_data_type(table.columns[table.primary_keys[0]].data_type)
 
     os.makedirs(base_dir, exist_ok = True)
-    with open(f"{base_dir}/{entity_name}Repository.java", 'w') as f:
+    with open(f"{base_dir}/{entity_name}Repository.java", 'w', encoding='utf-8') as f:
         f.write(repository_template.safe_substitute(
              target_schema = target_schema,
              entity_name = entity_name,
@@ -159,7 +159,7 @@ def make_service_class(table, base_dir = 'class/service'):
     repository_name = entity_name[0].lower() + entity_name[1:]
 
     os.makedirs(base_dir, exist_ok = True)
-    with open(f"{base_dir}/{entity_name}Service.java", 'w') as f:
+    with open(f"{base_dir}/{entity_name}Service.java", 'w', encoding='utf-8') as f:
         f.write(service_template.safe_substitute(
              target_schema = target_schema,
              entity_name = entity_name,
