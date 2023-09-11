@@ -169,7 +169,10 @@ def make_service_class(table, base_dir = 'class/service'):
 
 def make_entity_jpa(table):
     make_entity_class(table)
-    if len(table.primary_keys) > 1:
-        make_key_class(table)
-    make_repository_interface(table)
-    make_service_class(table)
+
+    length = len(table.primary_keys)
+    if length > 0:
+        if length > 1:
+            make_key_class(table)
+        make_repository_interface(table)
+        make_service_class(table)
