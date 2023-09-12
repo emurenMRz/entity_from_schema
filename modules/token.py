@@ -69,7 +69,7 @@ class Table:
     def read_token_table(csv_filename):
         token_table = {}
         if os.path.isfile(csv_filename):
-            with open(csv_filename) as f:
+            with open(csv_filename, encoding='utf-8') as f:
                 reader = csv.reader(f)
                 table = None
                 for row in reader:

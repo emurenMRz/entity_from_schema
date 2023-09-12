@@ -44,17 +44,17 @@ convert_nullable = {
     'boolean': 'Boolean',
 }
 
-with open(f"template/entity.template") as f:
+with open(f"template/entity.template", encoding='utf-8') as f:
      entity_template = Template(f.read())
-with open(f"template/entity_column.template") as f:
+with open(f"template/entity_column.template", encoding='utf-8') as f:
      entity_column_template = Template(f.read())
-with open(f"template/entity_key.template") as f:
+with open(f"template/entity_key.template", encoding='utf-8') as f:
      entity_key_template = Template(f.read())
-with open(f"template/entity_key_column.template") as f:
+with open(f"template/entity_key_column.template", encoding='utf-8') as f:
      entity_key_column_template = Template(f.read())
-with open(f"template/repository.template") as f:
+with open(f"template/repository.template", encoding='utf-8') as f:
      repository_template = Template(f.read())
-with open(f"template/service.template") as f:
+with open(f"template/service.template", encoding='utf-8') as f:
      service_template = Template(f.read())
 
 
