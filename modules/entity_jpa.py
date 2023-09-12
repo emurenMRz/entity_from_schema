@@ -90,7 +90,7 @@ def build_column(table, column):
 def make_entity_class(table, base_dir = 'class/entity'):
     target_schema = table.comment if table.comment != None else table.name
     entity_name = table.alternative_name
-    table_comment = f'\n@Table(comment = "{table.comment}")' if table.comment != None else ""
+    id_class = f'\n@IdClass({entity_name}Key.class)' if len(table.primary_keys) > 1 else ""
 
     columns = ''
     for column in table.columns.values():
@@ -101,7 +101,7 @@ def make_entity_class(table, base_dir = 'class/entity'):
         f.write(entity_template.safe_substitute(
              target_schema = target_schema,
              table_name = table.name,
-             table_comment = table_comment,
+             id_class = id_class,
              entity_name = entity_name,
              columns = columns
              ))
